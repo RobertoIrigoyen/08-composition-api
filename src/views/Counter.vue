@@ -8,23 +8,15 @@
 </template>
 
 <script>
-import { ref } from "vue";
-
+import useCounter from "@/composables/userCounter";
 export default {
   setup() {
-    const counter = ref(5);
-
-    // const increase = () => {
-    //     counter.value++
-    // } 
-    // const decrease = () => {
-    //     counter.value--
-    // } 
+    const { counter, decrease, increase } = useCounter(25);
 
     return {
       counter,
-      increase: () => counter.value++,
-      decrease: () => counter.value--
+      decrease,
+      increase,
     };
   },
 };

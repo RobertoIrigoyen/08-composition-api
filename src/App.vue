@@ -1,10 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link :to="{ name: 'counter' }">Counter</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link :to="{ name: 'counter' }">Counter</router-link> |
+      <router-link :to="{ name: 'user' }">User</router-link>
+    </nav>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
+  </div>
 </template>
 
 <style>

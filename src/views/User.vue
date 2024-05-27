@@ -1,27 +1,28 @@
 <template>
-  <h2 v-if="isLoading">Espere por favor...</h2>
-  <h2 v-else>Usuarios</h2>
-  <h5 v-if="errorMessage">{{ errorMessage }}</h5>
+  <section>
+    <h2 v-if="isLoading">Espere por favor...</h2>
+    <h2 v-else>Usuarios</h2>
+    <h5 v-if="errorMessage">{{ errorMessage }}</h5>
 
-  <div v-if="users.length > 0">
-    <ul>
-      <li v-for="{ first_name, last_name, email, id } in users" :key="id">
-        <h4>{{ first_name }} {{ last_name }}</h4>
-        <h6>{{ email }}</h6>
-      </li>
-    </ul>
-  </div>
+    <div v-if="users.length > 0">
+      <user-list :users="users" v-slot="{ user }">
+        <h5>{{ user.first_name }} {{ user.last_name }}</h5>
+        <span>{{ user.email }}</span>
+      </user-list>
+    </div>
 
-  <button @click="prevPage">Atras</button>
-  <button @click="nextPage">Siguiente</button>
-  <span> Página: {{ currentPage }}</span>
+    <button @click="prevPage">Atras</button>
+    <button @click="nextPage">Siguiente</button>
+    <span> Página: {{ currentPage }}</span>
+  </section>
 </template>
 
 <script>
-import axios from "axios";
-import { ref } from "vue";
 import useUsers from "@/composables/useUsers";
+import UserList from "../components/UserList.vue";
+
 export default {
+  components: { UserList },
   setup() {
     const { currentPage, errorMessage, isLoading, nextPage, prevPage, users } =
       useUsers();

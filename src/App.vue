@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link :to="{ name: 'counter' }">Counter</router-link> |
-      <router-link :to="{ name: 'user' }">User</router-link>
+      <router-link :to="{ name: 'user' }">User</router-link> | 
+      <router-link :to="{ name: 'pokemon-search' }">Pokemon Search</router-link> | 
     </nav>
     <router-view v-slot="{ Component }">
       <keep-alive>

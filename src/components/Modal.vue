@@ -9,10 +9,10 @@
 
       <!-- <slot /> -->
       <!-- <slot>
-                  <div class="center">
-                      Esto aparecerá si no tenemos contenido
-                  </div>
-              </slot> -->
+                <div class="center">
+                    Esto aparecerá si no tenemos contenido
+                </div>
+            </slot> -->
     </div>
   </div>
 </template>

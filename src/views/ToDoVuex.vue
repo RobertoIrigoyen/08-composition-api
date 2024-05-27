@@ -46,23 +46,19 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { computed, ref } from "vue";
+import useTodos from "@/composables/useTodos";
 
 export default {
   setup() {
-    const store = useStore();
-    const currentTab = ref("all");
-
+    const { pending, all, completed, currentTab, getTodosByTab, toggleTodo } =
+      useTodos();
     return {
-      pending: computed(() => store.getters["pendingTodos"]),
-      all: computed(() => store.getters["allTodos"]),
-      completed: computed(() => store.getters["completedTodos"]),
+      pending,
+      all,
+      completed,
       currentTab,
-      getTodosByTab: computed(() =>
-        store.getters["getTodosByTab"](currentTab.value)
-      ),
-      toggleTodo: (id) => store.commit("toggleTodo", id),
+      getTodosByTab,
+      toggleTodo,
     };
   },
 };

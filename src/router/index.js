@@ -55,6 +55,17 @@ const routes = [
         /* webpackChunkName: "pokemon" */ "../views/Pokemon.vue"
       ),
   },
+  {
+    path: "/to-do",
+    name: "to-do",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "to-do" */ "../views/ToDoVuex.vue"
+      ),
+  },
 ];
 
 const router = createRouter({

@@ -51,9 +51,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(
-        /* webpackChunkName: "pokemon" */ "../views/Pokemon.vue"
-      ),
+      import(/* webpackChunkName: "pokemon" */ "../views/Pokemon.vue"),
   },
   {
     path: "/to-do",
@@ -62,9 +60,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(
-        /* webpackChunkName: "to-do" */ "../views/ToDoVuex.vue"
-      ),
+      import(/* webpackChunkName: "to-do" */ "../views/ToDoVuex.vue"),
+  },
+  {
+    path: "/slots",
+    name: "slots",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "slots" */ "../views/customSlots.vue"),
   },
 ];
 

@@ -4,8 +4,8 @@
     <h4>Tareas:{{ $store.state.todos.length }}</h4>
 
     <h4>Pendientes: {{ pending.length }}</h4>
-    <h4>Pendientes: {{ all.length }}</h4>
-    <h4>Pendientes: {{ completed.length }}</h4>
+    <h4>Todos: {{ all.length }}</h4>
+    <h4>Completados: {{ completed.length }}</h4>
 
     <hr />
 
@@ -59,7 +59,10 @@ export default {
       all: computed(() => store.getters["allTodos"]),
       completed: computed(() => store.getters["completedTodos"]),
       currentTab,
-      getTodosByTab: computed(() => store.getters["getTodosByTab"](currentTab.value))
+      getTodosByTab: computed(() =>
+        store.getters["getTodosByTab"](currentTab.value)
+      ),
+      toggleTodo: (id) => store.commit("toggleTodo", id),
     };
   },
 };
